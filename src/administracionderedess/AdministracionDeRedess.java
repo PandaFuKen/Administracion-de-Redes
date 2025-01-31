@@ -35,6 +35,10 @@ public class AdministracionDeRedess {
             System.out.println("Direccion IP: " + caracteristicasIP.getDireccion());//MOSTRAMOS LA DIRECCION IP ORIGINAL
             System.out.println("Prefijo: /" + caracteristicasIP.getPrefijo());//MOSTRAMOS EL PREFIJO
             System.out.println("Clase: " + caracteristicasIP.obtenerClase());//MOSTRAMOS EL TIPO DE CLASE DE LA DIRECCION
+            System.out.println("Octeto 1: " + caracteristicasIP.getOcteto1());
+            System.out.println("Octeto 2: " + caracteristicasIP.getOcteto2());
+            System.out.println("Octeto 3: " + caracteristicasIP.getOcteto3());
+            System.out.println("Octeto 4: " + caracteristicasIP.getOcteto4());
         } else {//EN CASO DE QUE NO SEA VALIDA LA DIRECCION O EL PREFIJO MOSTRAMOS LOS MENSAJES
             if (!caracteristicasIP.prefijoValido()) {
                 System.out.println("Numero de prefijo no valido");
@@ -43,10 +47,13 @@ public class AdministracionDeRedess {
                 System.out.println("Direccion IP no valida");
             }
         }
+        
+         conClase conClase = new conClase(caracteristicasIP.getDireccion(),caracteristicasIP.getPrefijo(),caracteristicasIP);
 
+        // Realizar operaciones e imprimir resultados
+        conClase.calcularPropiedades();    
         scanner.close();
         
-       
     }
     
 }
