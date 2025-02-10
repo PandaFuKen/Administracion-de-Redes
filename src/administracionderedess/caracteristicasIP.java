@@ -3,11 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package administracionderedess;
-
-import java.util.Scanner;
-
 //LA DIRECCION IP DE LA CLASE direccionIP ES DE TIPO STRING
-//EN ESTA CLASE SE HACE EL MANEJO EN ENTERO
+//EN ESTA CLASE SE HACE EL MANEJO DE VALORES DE TIPO ENTERO
 
 //CLASE PARA OBTENER LAS CARACTERISTICAS DE LA DIRECCION IP
 public class caracteristicasIP extends direccionIP {

@@ -7,20 +7,15 @@ package administracionderedess;
 import java.util.Scanner;
 
 
-public class AdministracionDeRedess {    
-    /**
-     * @param args the command line arguments
-     */
+public class AdministracionDeRedess { 
+    
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner scanner = new Scanner( System.in);
-        
-        //LABEL PARA INGRESAR LOS DATOS
-        
+        //LABEL PARA INGRESAR LOS DATOs
         // OBTENEMOS LA DIRECCION IP
         System.out.print("Introduce una direccion IP: ");
         String direccionIP = scanner.nextLine();
-        
         //OBTENEMOS EL PREFIJO DE LA DIRECCION IP
         System.out.print("/: ");
         int prefijo = scanner.nextInt();
@@ -29,17 +24,13 @@ public class AdministracionDeRedess {
         caracteristicasIP caracteristicasIP = new caracteristicasIP(direccionIP, prefijo);
         
         //ETIQUETAS PARA MOSTRAR LOS DATOS DE LA DIRECCION IP
-        
         // SALIDA DE DATOS
         if (caracteristicasIP.prefijoValido() && caracteristicasIP.dirIpValida()) {// SI LA DIRECCION IP ES VALIDA
             System.out.println("Direccion IP: " + caracteristicasIP.getDireccion());//MOSTRAMOS LA DIRECCION IP ORIGINAL
             System.out.println("Prefijo: /" + caracteristicasIP.getPrefijo());//MOSTRAMOS EL PREFIJO
             System.out.println("Clase: " + caracteristicasIP.obtenerClase());//MOSTRAMOS EL TIPO DE CLASE DE LA DIRECCION
-            System.out.println("Octeto 1: " + caracteristicasIP.getOcteto1());
-            System.out.println("Octeto 2: " + caracteristicasIP.getOcteto2());
-            System.out.println("Octeto 3: " + caracteristicasIP.getOcteto3());
-            System.out.println("Octeto 4: " + caracteristicasIP.getOcteto4());
-        } else {//EN CASO DE QUE NO SEA VALIDA LA DIRECCION O EL PREFIJO MOSTRAMOS LOS MENSAJES
+        } 
+        else {//EN CASO DE QUE NO SEA VALIDA LA DIRECCION O EL PREFIJO MOSTRAMOS LOS MENSAJES
             if (!caracteristicasIP.prefijoValido()) {
                 System.out.println("Numero de prefijo no valido");
             }
@@ -47,13 +38,25 @@ public class AdministracionDeRedess {
                 System.out.println("Direccion IP no valida");
             }
         }
+        int opcion = 1;
+        System.out.println("Ingrese la opcion que desea calcular: "
+                + "\n1.- Propiedades de la direccion IP"
+                + "\n2.-Calcular el numero de host de una direccion IP");
+        opcion = scanner.nextInt();
         
-         conClase conClase = new conClase(caracteristicasIP.getDireccion(),caracteristicasIP.getPrefijo(),caracteristicasIP);
-
-        // Realizar operaciones e imprimir resultados
-        conClase.calcularPropiedades();    
+        switch (opcion) {
+            case 1 -> {
+                conClase conClase = new conClase(caracteristicasIP.getDireccion(),caracteristicasIP.getPrefijo(),caracteristicasIP);
+                conClase.calcularPropiedades();
+            }
+            case 2 -> {
+                NoHost NoHost = new NoHost(caracteristicasIP.getDireccion(),caracteristicasIP.getPrefijo(),caracteristicasIP);
+                NoHost.calcularPropiedades();
+            }
+                
+            default -> System.out.println("Opcion no valida, Intente de nuevo");
+        }
         scanner.close();
-        
     }
     
 }
