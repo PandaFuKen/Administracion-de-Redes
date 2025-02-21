@@ -10,7 +10,7 @@ import static administracionderedess.conClase.convertirABinario;
  *
  * @author Jorge Marcos
  */
-public class NoHost {
+public class NoHost{
     
     private String direccionIP;
     private int prefijo;
@@ -20,9 +20,6 @@ public class NoHost {
     private int octeto3;
     private int octeto4;
     private int direccionIpBinario[] = new int[32];//DIRECCION IP EN FORMA DE NUMERO BINARIO
-    private int mascaraBinario[]= new int[32];//MASCARA DE SUBRED EN FORMA DE NUMERO BINARIO
-    private int mascaraDecimal[]= new int[32];//MASCARA DE SUBRED EN FORMA DECIMAL
-    private int direccionAnd[]= new int[32];//DIRECCION RESULTADO DE LA OPERACION AND
         
     private int cantHost=0;
     private double totalHost;

@@ -4,9 +4,7 @@
  */
 package administracionderedess;
 
-import java.util.Scanner;
-
-
+//
 //CLASE SOLO PARA EL MANEJO DE LA DIRECCION IP
 public class direccionIP {
     private String direccion;
@@ -15,12 +13,13 @@ public class direccionIP {
     public direccionIP(String direccionIP, int prefijo){
         this.direccion = direccionIP;
         this.prefijo = prefijo;
-    
     }
+
    //LA DIRECCION IP ORIGINAL LA DIVIDIMOS EN OCTETOS 
     public String[] dividirEnOctetos() {
         return direccion.split("\\.");
     }
+
     //OBTENEMOS LA DIRECCION IP
     public String getDireccion() {
         return direccion;

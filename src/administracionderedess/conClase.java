@@ -278,6 +278,6 @@ public class conClase {
         }
 
         return decimal;
-    }
+    }//FIN FUNCION PARA CONVERTIR UN NUMERO DE BINARIO A DECIMAL
     
 }//FIN DE LA CLASE
