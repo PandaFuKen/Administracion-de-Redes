@@ -11,7 +11,7 @@ public class conClase {
     private int prefijo;
     
     //OBTENEMOS LAS CARACTERISTICASA DE LA DIRECCION IP COMO SU PREFIJO, CLASE Y EL VALOR DE LOS OCTETOS
-    private caracteristicasIP caracteristicasIP;
+    private CaracteristicasIP caracteristicasIP;
     private final int octeto1;
     private final int octeto2;
     private final int octeto3;
@@ -34,7 +34,7 @@ public class conClase {
     private int cuartoOctetoBroadcastDecimal;
     
     
-    public conClase(String direccionIP, int prefijo, caracteristicasIP caracteristicasIP){
+    public conClase(String direccionIP, int prefijo, CaracteristicasIP caracteristicasIP){
         
         this.direccionIP = caracteristicasIP.getDireccion();
         
@@ -46,7 +46,7 @@ public class conClase {
         this.octeto4 = caracteristicasIP.getOcteto4();
         
     }
-//LLAMAR A CIERTA CLASE YB RETORNA SU VALOR:
+//LLAMAR A CIERTA CLASE Y RETORNA SU VALOR:
     //String resultado = mascaraSubred.obtenerMascaraEnBinario();
     public void calcularPropiedades(){
             //PROCEDIMIENTO PARA OBTENER LAS PROPIEDADES DE LA RED
@@ -129,7 +129,7 @@ public class conClase {
      StringBuilder direccionIpBinarioString = new StringBuilder();
             for (int i = 0; i <32; i++) {
                 if (i==8 || i==16 || i==24) {
-                    System.out.print(".");
+                    direccionIpBinarioString.append(".");
                 }
                direccionIpBinarioString.append(direccionIpBinario[i]);
             }
@@ -279,5 +279,23 @@ public class conClase {
 
         return decimal;
     }//FIN FUNCION PARA CONVERTIR UN NUMERO DE BINARIO A DECIMAL
+    
+     //CONVERTIMOS LA DIRECCION IP RESULTANTE A FORMA DECIMAL
+    public String binarioADecimal(String direccionBinaria) {
+        // Separar la dirección en bloques de 8 bits
+        String[] bloques = direccionBinaria.split("\\.");
+        StringBuilder direccionDecimal = new StringBuilder();
+
+        // Convertir cada bloque a decimal
+        for (int i = 0; i < bloques.length; i++) {
+            int decimal = Integer.parseInt(bloques[i], 2); // Convierte binario a decimal
+            direccionDecimal.append(decimal);
+            if (i < bloques.length - 1) {
+                direccionDecimal.append(".");
+            }
+        }
+
+        return direccionDecimal.toString();
+    }
     
 }//FIN DE LA CLASE

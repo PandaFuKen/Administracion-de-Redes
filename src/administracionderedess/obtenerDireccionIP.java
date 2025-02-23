@@ -7,7 +7,7 @@ package administracionderedess;
 //CLASE A TRAVES DE LA CUAL SE CALCULA LA DIRECCION IP A PARTIR DE LA INFORMACION DEL NUMERO DE HOST
 //Y DE LA DIRECCION DE RED.
 
-public class obtenerDireccionIP {
+public class ObtenerDireccionIP {
     private int numeroDeHost;//NUMERO DE HOST
     private String binario;
     private int hostBinario[];
@@ -15,19 +15,19 @@ public class obtenerDireccionIP {
     private String clase = "";
     private int prefijo;
 
-    private caracteristicasIP caracteristicasIP;
+    private CaracteristicasIP caracteristicasIP;
     private int direccionDeLaRedBinario[] = new int[32];//DIRECCION DE LA RED EN FORMA BINARIA (A ESTA SE MODIFICA CON LOS HOST EN BINARIO)
     private int octeto1;
     private int octeto2;
     private int octeto3;
     private int octeto4;
 
-    public obtenerDireccionIP(int numeroDeHost, String direccionIPs){//OBTENEMOS LOS DATOS DEL NUMERO DE HOST Y LA DIRECCION IP DE LA RED
+    public ObtenerDireccionIP(int numeroDeHost, String direccionIPs){//OBTENEMOS LOS DATOS DEL NUMERO DE HOST Y LA DIRECCION IP DE LA RED
 
         this.direccionIP = direccionIPs;
         this.numeroDeHost = numeroDeHost;
 
-        caracteristicasIP caracteristicasIP = new caracteristicasIP(direccionIP, obtenerPrefijo(clase));
+        CaracteristicasIP caracteristicasIP = new CaracteristicasIP(direccionIP, obtenerPrefijo(clase));
         this.direccionIP = direccionIPs;
         this.caracteristicasIP = caracteristicasIP;
         this.prefijo = caracteristicasIP.getPrefijo();
@@ -50,7 +50,7 @@ public class obtenerDireccionIP {
         System.out.println("Direccion Ip en forma decimal: "+binarioADecimal(direccionIP()));
 
         //LLAMAMOS A LA FUNCION QUE CALCULA LA DIRECCION DE RED
-        caracteristicasIP caracteristicasIP = new caracteristicasIP(direccionIP, obtenerPrefijo(clase));
+        CaracteristicasIP caracteristicasIP = new CaracteristicasIP(direccionIP, obtenerPrefijo(clase));
         conClase conClase = new conClase(direccionIP,obtenerPrefijo(clase),caracteristicasIP);//OBTENEMOS LA DIRECCION IP EN BINARIO;
         System.out.println("Direccion de red: "+conClase.ObtenerDireccionDeRed());
     }
@@ -69,13 +69,13 @@ public class obtenerDireccionIP {
 
         //VERIFICAMOS SI EL VALOR DE LOS OCTETOS ES VALIDO PARA UNA DIRECCION IP
         if (octeto1 >= 1 && octeto1 <= 255 && octeto2 >= 0 && octeto2 <= 255 && octeto3 >= 0 && octeto3 <= 255 && octeto4 >= 0 && octeto4 <= 255){
-                //DETERMINAMOS LA CLASE DE LA DIRECCION IP
-                int primerOcteto = Integer.parseInt(dividirEnOctetos()[0]);
-                if (primerOcteto >= 1 && primerOcteto <= 126) clase = "A";
-                if (primerOcteto >= 128 && primerOcteto <= 191) clase = "B";
-                if (primerOcteto >= 192 && primerOcteto <= 223) clase = "C";
-                if (primerOcteto >= 224 && primerOcteto <= 239) clase = "D";
-                if (primerOcteto >= 240 && primerOcteto <= 255) clase = "E";
+            //DETERMINAMOS LA CLASE DE LA DIRECCION IP
+            int primerOcteto = Integer.parseInt(dividirEnOctetos()[0]);
+            if (primerOcteto >= 1 && primerOcteto <= 126) clase = "A";
+            if (primerOcteto >= 128 && primerOcteto <= 191) clase = "B";
+            if (primerOcteto >= 192 && primerOcteto <= 223) clase = "C";
+            if (primerOcteto >= 224 && primerOcteto <= 239) clase = "D";
+            if (primerOcteto >= 240 && primerOcteto <= 255) clase = "E";
         }else{
             System.exit(0);
         }
@@ -83,7 +83,7 @@ public class obtenerDireccionIP {
     }
 
     //OBTENEMOS EL PREFIJO DE LA RED
-    private int obtenerPrefijo(String clase){
+    public int obtenerPrefijo(String clase){
 
         if (clase == "A"){
             prefijo = 8;
@@ -98,7 +98,7 @@ public class obtenerDireccionIP {
             System.out.print("Prefijo no valido");
             System.exit(0);
         }
-    return prefijo;
+        return prefijo;
     }
 
     //OBTENEMOS EL NUMERO DE HOST EN FORMA BINARIA
@@ -110,7 +110,7 @@ public class obtenerDireccionIP {
 
     //EL NUMERO DE HOST LO CONVERTIMOS EN BINARIO
     public String convertirABinario(int numeroDecimal) {
-     binario = Integer.toBinaryString(numeroDecimal);//REALIZAMO9S LA CONVERSION A BINARIO
+        binario = Integer.toBinaryString(numeroDecimal);//REALIZAMO9S LA CONVERSION A BINARIO
         MiClase(binario);
 
         for (int i = 0; i < binario.length(); i++) {
@@ -162,7 +162,7 @@ public class obtenerDireccionIP {
     }
 
     //CONVERTIMOS LA DIRECCION IP RESULTANTE A FORMA DECIMAL
-    public static String binarioADecimal(String direccionBinaria) {
+    public String binarioADecimal(String direccionBinaria) {
         // Separar la dirección en bloques de 8 bits
         String[] bloques = direccionBinaria.split("\\.");
         StringBuilder direccionDecimal = new StringBuilder();

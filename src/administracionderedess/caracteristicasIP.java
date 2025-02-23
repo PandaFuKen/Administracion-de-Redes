@@ -7,14 +7,14 @@ package administracionderedess;
 //EN ESTA CLASE SE HACE EL MANEJO DE VALORES DE TIPO ENTERO
 
 //CLASE PARA OBTENER LAS CARACTERISTICAS DE LA DIRECCION IP
-public class caracteristicasIP extends direccionIP {
+public class CaracteristicasIP extends direccionIP {
 
     public int octeto1;
     public int octeto2;
     public int octeto3;
     public int octeto4;
     
-    public caracteristicasIP(String direccionIP, int prefijo) {
+    public CaracteristicasIP(String direccionIP, int prefijo) {
         super(direccionIP, prefijo);
         
         //MANEJAMOS LOS OCTETOS QUE SE DIVIDIERON EN EL ARREGLO 'dividirEnOctetos'

@@ -5,7 +5,6 @@
 package administracionderedess;
 
 import java.util.Scanner;
-
 public class AdministracionDeRedess {
 
     public static void main(String[] args) {
@@ -42,7 +41,7 @@ public class AdministracionDeRedess {
         int prefijo = scanner.nextInt();
 
         //CLASE PARA OBTENER LAS CARACTERISTICAS DE LA DIRECCION IP
-        caracteristicasIP caracteristicasIP = new caracteristicasIP(direccionIP, prefijo);
+        CaracteristicasIP caracteristicasIP = new CaracteristicasIP(direccionIP, prefijo);
 
         //ETIQUETAS PARA MOSTRAR LOS DATOS DE LA DIRECCION IP
         // SALIDA DE DATOS
@@ -90,7 +89,7 @@ public class AdministracionDeRedess {
         System.out.println("Ingresa el numero de host");
         int numeroDeHost = scanner.nextInt();
 
-        obtenerDireccionIP obtenerDireccionIP = new obtenerDireccionIP(numeroDeHost, direccionIP);
+        ObtenerDireccionIP obtenerDireccionIP = new ObtenerDireccionIP(numeroDeHost, direccionIP);
         obtenerDireccionIP.calcularPropiedades();
     }
 
