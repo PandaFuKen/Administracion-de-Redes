@@ -4,6 +4,8 @@
  */
 package administracionderedess;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jorge Marcos
@@ -299,13 +301,19 @@ public class calcularPropiedades extends javax.swing.JPanel {
         //OBTENEMOS LOS DATOS DEL USUARIO
         String direccionIP = IP.getText();
         String prefijoString = Prefijo.getText();
-        //AGREGAR MANEJO DE ERRORES EN CASO DE QUE ESTE VACIO O TENGA VALORES QUE NO SEAN CORRECTOS
-        
+        //AGREGAR MANEJO DE ERRORES EN CASO DE QUE ESTE VACIO
+        if (direccionIP.isEmpty() || prefijoString.isEmpty()) {
+            JOptionPane.showMessageDialog(null,"Ingresa valores para calcular");
+        }
         //LLAMAMOS A LAS CLASES Y LE PASAMOS LOS DATOS
         int prefijoInt = Integer.parseInt(prefijoString);
         CaracteristicasIP caracteristicasIP = new CaracteristicasIP(direccionIP, prefijoInt);
         conClase conclase = new conClase(direccionIP,prefijoInt, caracteristicasIP);
-        
+       
+        //MANEJO DE ERRORES EN CASO DE QUE LOS DATOS NO SEAN VALIDOS
+        if (!caracteristicasIP.dirIpValida()) {JOptionPane.showMessageDialog(null, "La dirección IP ingresada no es válida.", "Error", JOptionPane.ERROR_MESSAGE);return;}
+        if (!caracteristicasIP.prefijoValido()) {JOptionPane.showMessageDialog(null, "El prefijo debe estar entre 0 y 32.", "Error", JOptionPane.ERROR_MESSAGE);return;}
+   
         //OBTENEMOS LOS RESULTADOS DE LAS OPERACIONES
         LabelClase.setText(caracteristicasIP.obtenerClase());
         LabelIpBinario.setText(conclase.ObtenerDireccionIpBinario());

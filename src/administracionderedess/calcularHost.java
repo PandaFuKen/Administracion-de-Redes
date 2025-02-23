@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package administracionderedess;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -194,6 +195,8 @@ public class calcularHost extends javax.swing.JPanel {
                     return canEdit [columnIndex];
                 }
             });
+            tabla.getTableHeader().setResizingAllowed(false);
+            tabla.getTableHeader().setReorderingAllowed(false);
             jScrollPane2.setViewportView(tabla);
 
             jLabel5.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
@@ -396,6 +399,9 @@ public class calcularHost extends javax.swing.JPanel {
     String direccionIP = IP.getText();
     String prefijoString = pref.getText();
     //AGREGAR MANEJO DE ERRORES EN CASO DE QUE ESTE VACIO O TENGA VALORES QUE NO SEAN CORRECTOS
+    if (direccionIP.isEmpty() || prefijoString.isEmpty()) {
+            JOptionPane.showMessageDialog(null,"Ingresa valores para calcular");
+        }
     
      int prefijoInt = Integer.parseInt(prefijoString);
     CaracteristicasIP caracteristicasIP = new CaracteristicasIP(direccionIP, prefijoInt);
@@ -403,6 +409,9 @@ public class calcularHost extends javax.swing.JPanel {
     modelo.setRowCount(0);
     NoHost noHost = new NoHost(direccionIP, prefijoInt, caracteristicasIP);
     
+    if (!caracteristicasIP.dirIpValida()) {JOptionPane.showMessageDialog(null, "La dirección IP ingresada no es válida.", "Error", JOptionPane.ERROR_MESSAGE);return;}
+    if (!caracteristicasIP.prefijoValido()) {JOptionPane.showMessageDialog(null, "El prefijo debe estar entre 0 y 32.", "Error", JOptionPane.ERROR_MESSAGE);return;}
+
     // Crear las instancias necesarias para los cálculos
     calcularHost calcularHost = new calcularHost();
     DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();

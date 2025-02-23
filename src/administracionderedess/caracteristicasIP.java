@@ -6,6 +6,9 @@ package administracionderedess;
 //LA DIRECCION IP DE LA CLASE direccionIP ES DE TIPO STRING
 //EN ESTA CLASE SE HACE EL MANEJO DE VALORES DE TIPO ENTERO
 
+import javax.swing.JOptionPane;
+
+
 //CLASE PARA OBTENER LAS CARACTERISTICAS DE LA DIRECCION IP
 public class CaracteristicasIP extends direccionIP {
 
@@ -18,11 +21,14 @@ public class CaracteristicasIP extends direccionIP {
         super(direccionIP, prefijo);
         
         //MANEJAMOS LOS OCTETOS QUE SE DIVIDIERON EN EL ARREGLO 'dividirEnOctetos'
-        String[] octetos = dividirEnOctetos();
-        this.octeto1 = Integer.parseInt(octetos[0]);
-        this.octeto2 = Integer.parseInt(octetos[1]);
-        this.octeto3 = Integer.parseInt(octetos[2]);
-        this.octeto4 = Integer.parseInt(octetos[3]);
+      
+            String[] octetos = dividirEnOctetos();
+            this.octeto1 = Integer.parseInt(octetos[0]);
+            this.octeto2 = Integer.parseInt(octetos[1]);
+            this.octeto3 = Integer.parseInt(octetos[2]);
+            this.octeto4 = Integer.parseInt(octetos[3]);
+        
+        
     }
     
     //OBTENEMOS CADA OCTETO POR SEPARADO PARA SU FACIL MANEJO
@@ -71,13 +77,17 @@ public class CaracteristicasIP extends direccionIP {
     //VALIDACION DEL PREFIJO
         public boolean prefijoValido() {
             int prefijo = getPrefijo();
-            return prefijo <= 32;
+            return prefijo >= 0 && prefijo <= 32;
         }
     //VALIDACION DE LA DIRECCION IP
         public boolean dirIpValida() {
-            return octeto1 >= 1 && octeto1 <= 255 && octeto2 >= 0 && octeto2 <= 255 &&
-            octeto3 >= 0 && octeto3 <= 255 && octeto4 >= 0 && octeto4 <= 255;
+            return octeto1 >= 1 && octeto1 <= 255 && 
+                   octeto2 >= 0 && octeto2 <= 255 &&
+                   octeto3 >= 0 && octeto3 <= 255 &&
+                   octeto4 >= 0 && octeto4 <= 255;
+            
         }
+        
         //OBTENEMOS LA CLASE DE LA DIRECCION IP
         public String obtenerClase() {
         int primerOcteto = Integer.parseInt(dividirEnOctetos()[0]);

@@ -18,7 +18,7 @@ public class CalculadoraDeIPS extends javax.swing.JFrame {
     public CalculadoraDeIPS() {
         setTitle("Administracion de redes");
         initComponents();
-        agregarPanelPrincipal(); 
+        agregarPanelPrincipal();
     }
 
     /**
@@ -139,7 +139,7 @@ public class CalculadoraDeIPS extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-      agregarPanelPrincipal();
+        agregarPanelPrincipal();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -166,7 +166,7 @@ public class CalculadoraDeIPS extends javax.swing.JFrame {
         jPanel1.repaint(); // Repintamos para que se muestre el nuevo contenido  
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void agregarPanelPrincipal(){
+    private void agregarPanelPrincipal() {
         calcularPropiedades Home = new calcularPropiedades();
         Home.setSize(1200, 620);
         Home.setLocation(0, 0);
@@ -176,6 +176,7 @@ public class CalculadoraDeIPS extends javax.swing.JFrame {
         jPanel1.revalidate(); // Revalidamos para actualizar el panel
         jPanel1.repaint(); // Repintamos para que se muestre el nuevo contenido  
     }
+
     /**
      * @param args the command line arguments
      */

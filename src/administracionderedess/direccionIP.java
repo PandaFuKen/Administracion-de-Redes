@@ -8,7 +8,7 @@ package administracionderedess;
 //CLASE SOLO PARA EL MANEJO DE LA DIRECCION IP
 public class direccionIP {
     private String direccion;
-    private int prefijo;
+    public int prefijo;
             
     public direccionIP(String direccionIP, int prefijo){
         this.direccion = direccionIP;

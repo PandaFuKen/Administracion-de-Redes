@@ -4,6 +4,8 @@
  */
 package administracionderedess;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jorge Marcos
@@ -357,12 +359,17 @@ public class calcularDirIP extends javax.swing.JPanel {
         String direccionIP = IP.getText();
         String numeroHost = pref.getText();
         //AGREGAR MANEJO DE ERRORES EN CASO DE QUE ESTE VACIO O TENGA VALORES QUE NO SEAN CORRECTOS
+        if (direccionIP.isEmpty() || numeroHost.isEmpty()) {
+            JOptionPane.showMessageDialog(null,"Ingresa valores para calcular");
+        }
         
          int numHost = Integer.parseInt(numeroHost);
         ObtenerDireccionIP obtenerDireccionIP = new ObtenerDireccionIP(numHost, direccionIP);
         CaracteristicasIP caracteristicasIP = new CaracteristicasIP(direccionIP, obtenerDireccionIP.obtenerPrefijo(obtenerDireccionIP.obtenerClase()));
         conClase conclase = new conClase(direccionIP, obtenerDireccionIP.obtenerPrefijo(obtenerDireccionIP.obtenerClase()), caracteristicasIP);
-        
+      
+        if (!caracteristicasIP.dirIpValida()) {JOptionPane.showMessageDialog(null, "La dirección IP ingresada no es válida.", "Error", JOptionPane.ERROR_MESSAGE);return;}
+        if (!caracteristicasIP.prefijoValido()) {JOptionPane.showMessageDialog(null, "El prefijo debe estar entre 0 y 32.", "Error", JOptionPane.ERROR_MESSAGE);return;}
         
         LabelClaseDeRed.setText(caracteristicasIP.obtenerClase());
         String prefijo = String.valueOf(obtenerDireccionIP.obtenerPrefijo(obtenerDireccionIP.obtenerClase()));
@@ -374,7 +381,6 @@ public class calcularDirIP extends javax.swing.JPanel {
         LabelDirDeRed.setText(conclase.ObtenerDireccionDeRed());
     
     }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField IP;
