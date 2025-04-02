@@ -6,10 +6,6 @@ package administracionderedess;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Jorge Marcos
- */
 public class calcularDirIP extends javax.swing.JPanel {
 
     /**
@@ -116,15 +112,15 @@ public class calcularDirIP extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel4.setText("Numero de Host en Binario : ");
+        jLabel4.setText("Mascara en binario");
 
         jLabel6.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel6.setText("Direccion de red Binario : ");
+        jLabel6.setText("Direccion IP Binario : ");
 
         jLabel7.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel7.setText("Direccion ip Binaria: ");
+        jLabel7.setText("Bits de subred");
 
         jLabel11.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 153, 153));
@@ -133,7 +129,7 @@ public class calcularDirIP extends javax.swing.JPanel {
         LabelPrefijo.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
         LabelPrefijo.setForeground(new java.awt.Color(204, 204, 204));
         LabelPrefijo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        LabelPrefijo.setText("0.0.0.0");
+        LabelPrefijo.setText("--");
         LabelPrefijo.setToolTipText("");
 
         LabelDirIpDecimal.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
@@ -145,7 +141,7 @@ public class calcularDirIP extends javax.swing.JPanel {
         LabelHostBinario.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
         LabelHostBinario.setForeground(new java.awt.Color(204, 204, 204));
         LabelHostBinario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        LabelHostBinario.setText("0");
+        LabelHostBinario.setText("0.0.0.0");
         LabelHostBinario.setToolTipText("");
 
         LabelDirIpBinaria.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
@@ -197,15 +193,14 @@ public class calcularDirIP extends javax.swing.JPanel {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(LabelDirIpBinaria, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(8, 8, 8))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                         .addComponent(LabelHostBinario, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGap(10, 10, 10))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -214,7 +209,7 @@ public class calcularDirIP extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addComponent(LabelDirIpDecimal, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -356,6 +351,7 @@ public class calcularDirIP extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+       // TODO add your handling code here:
         String direccionIP = IP.getText();
         String numeroHost = pref.getText();
         //AGREGAR MANEJO DE ERRORES EN CASO DE QUE ESTE VACIO O TENGA VALORES QUE NO SEAN CORRECTOS
@@ -364,8 +360,8 @@ public class calcularDirIP extends javax.swing.JPanel {
         }
         
          int numHost = Integer.parseInt(numeroHost);
-        ObtenerDireccionIP obtenerDireccionIP = new ObtenerDireccionIP(numHost, direccionIP);
-        CaracteristicasIP caracteristicasIP = new CaracteristicasIP(direccionIP, obtenerDireccionIP.obtenerPrefijo(obtenerDireccionIP.obtenerClase()));
+        obtenerDireccionIP obtenerDireccionIP = new obtenerDireccionIP(numHost, direccionIP);
+        caracteristicasIP caracteristicasIP = new caracteristicasIP(direccionIP, obtenerDireccionIP.obtenerPrefijo(obtenerDireccionIP.obtenerClase()));
         conClase conclase = new conClase(direccionIP, obtenerDireccionIP.obtenerPrefijo(obtenerDireccionIP.obtenerClase()), caracteristicasIP);
       
         if (!caracteristicasIP.dirIpValida()) {JOptionPane.showMessageDialog(null, "La dirección IP ingresada no es válida.", "Error", JOptionPane.ERROR_MESSAGE);return;}
@@ -379,7 +375,7 @@ public class calcularDirIP extends javax.swing.JPanel {
         LabelDirIpBinaria.setText(obtenerDireccionIP.direccionIP());
         LabelDirIpDecimal.setText(obtenerDireccionIP.binarioADecimal(obtenerDireccionIP.direccionIP()));
         LabelDirDeRed.setText(conclase.ObtenerDireccionDeRed());
-    
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

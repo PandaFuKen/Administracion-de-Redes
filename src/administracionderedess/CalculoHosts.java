@@ -6,7 +6,7 @@ public class CalculoHosts {
     
     private String direccionIP;
     private int prefijo;
-    private CaracteristicasIP caracteristicasIP;
+    private caracteristicasIP caracteristicasIP;
     private int octeto1;
     private int octeto2;
     private int octeto3;
@@ -21,7 +21,7 @@ public class CalculoHosts {
         this.modelo = modelo;
     }
 
-    public void calcularCantidadHosts(String direccionIP, int prefijo, CaracteristicasIP caracteristicasIP) {
+    public void calcularCantidadHosts(String direccionIP, int prefijo, caracteristicasIP caracteristicasIP) {
          modelo.setRowCount(0); 
         conClase conClase = new conClase(direccionIP,prefijo,caracteristicasIP);//OBTENEMOS LA DIRECCION IP EN BINARIO
             String direccionIpBinarioString = conClase.CalcularDireccionIpDecimalABinario();

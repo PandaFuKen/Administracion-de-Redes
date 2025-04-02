@@ -404,7 +404,7 @@ public class calcularHost extends javax.swing.JPanel {
         }
     
      int prefijoInt = Integer.parseInt(prefijoString);
-    CaracteristicasIP caracteristicasIP = new CaracteristicasIP(direccionIP, prefijoInt);
+    caracteristicasIP caracteristicasIP = new caracteristicasIP(direccionIP, prefijoInt);
     conClase conclase = new conClase(direccionIP, prefijoInt, caracteristicasIP);
     modelo.setRowCount(0);
     NoHost noHost = new NoHost(direccionIP, prefijoInt, caracteristicasIP);

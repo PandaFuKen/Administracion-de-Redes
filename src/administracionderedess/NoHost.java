@@ -8,7 +8,7 @@ public class NoHost{
     
     private String direccionIP;
     private int prefijo;
-    private CaracteristicasIP caracteristicasIP;
+    private caracteristicasIP caracteristicasIP;
     private int octeto1;
     private int octeto2;
     private int octeto3;
@@ -19,7 +19,7 @@ public class NoHost{
     private double totalHost;
     private int posicion = 0;
     
-    public NoHost(String direccionIP, int prefijo, CaracteristicasIP caracteristicasIP){
+    public NoHost(String direccionIP, int prefijo, caracteristicasIP caracteristicasIP){
     
         this.caracteristicasIP = caracteristicasIP;
         

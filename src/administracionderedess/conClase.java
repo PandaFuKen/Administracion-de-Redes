@@ -11,7 +11,7 @@ public class conClase {
     private int prefijo;
     
     //OBTENEMOS LAS CARACTERISTICASA DE LA DIRECCION IP COMO SU PREFIJO, CLASE Y EL VALOR DE LOS OCTETOS
-    private CaracteristicasIP caracteristicasIP;
+    private caracteristicasIP caracteristicasIP;
     private final int octeto1;
     private final int octeto2;
     private final int octeto3;
@@ -34,7 +34,7 @@ public class conClase {
     private int cuartoOctetoBroadcastDecimal;
     
     
-    public conClase(String direccionIP, int prefijo, CaracteristicasIP caracteristicasIP){
+    public conClase(String direccionIP, int prefijo, caracteristicasIP caracteristicasIP){
         
         this.direccionIP = caracteristicasIP.getDireccion();
         

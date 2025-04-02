@@ -7,7 +7,7 @@ package administracionderedess;
 //CLASE A TRAVES DE LA CUAL SE CALCULA LA DIRECCION IP A PARTIR DE LA INFORMACION DEL NUMERO DE HOST
 //Y DE LA DIRECCION DE RED.
 
-public class ObtenerDireccionIP {
+public class obtenerDireccionIP {
     private int numeroDeHost;//NUMERO DE HOST
     private String binario;
     private int hostBinario[];
@@ -15,19 +15,19 @@ public class ObtenerDireccionIP {
     private String clase = "";
     private int prefijo;
 
-    private CaracteristicasIP caracteristicasIP;
+    private caracteristicasIP caracteristicasIP;
     private int direccionDeLaRedBinario[] = new int[32];//DIRECCION DE LA RED EN FORMA BINARIA (A ESTA SE MODIFICA CON LOS HOST EN BINARIO)
     private int octeto1;
     private int octeto2;
     private int octeto3;
     private int octeto4;
 
-    public ObtenerDireccionIP(int numeroDeHost, String direccionIPs){//OBTENEMOS LOS DATOS DEL NUMERO DE HOST Y LA DIRECCION IP DE LA RED
+    public obtenerDireccionIP(int numeroDeHost, String direccionIPs){//OBTENEMOS LOS DATOS DEL NUMERO DE HOST Y LA DIRECCION IP DE LA RED
 
         this.direccionIP = direccionIPs;
         this.numeroDeHost = numeroDeHost;
 
-        CaracteristicasIP caracteristicasIP = new CaracteristicasIP(direccionIP, obtenerPrefijo(clase));
+        caracteristicasIP caracteristicasIP = new caracteristicasIP(direccionIP, obtenerPrefijo(clase));
         this.direccionIP = direccionIPs;
         this.caracteristicasIP = caracteristicasIP;
         this.prefijo = caracteristicasIP.getPrefijo();
@@ -50,7 +50,7 @@ public class ObtenerDireccionIP {
         System.out.println("Direccion Ip en forma decimal: "+binarioADecimal(direccionIP()));
 
         //LLAMAMOS A LA FUNCION QUE CALCULA LA DIRECCION DE RED
-        CaracteristicasIP caracteristicasIP = new CaracteristicasIP(direccionIP, obtenerPrefijo(clase));
+        caracteristicasIP caracteristicasIP = new caracteristicasIP(direccionIP, obtenerPrefijo(clase));
         conClase conClase = new conClase(direccionIP,obtenerPrefijo(clase),caracteristicasIP);//OBTENEMOS LA DIRECCION IP EN BINARIO;
         System.out.println("Direccion de red: "+conClase.ObtenerDireccionDeRed());
     }

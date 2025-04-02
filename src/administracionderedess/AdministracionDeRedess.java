@@ -41,7 +41,7 @@ public class AdministracionDeRedess {
         int prefijo = scanner.nextInt();
 
         //CLASE PARA OBTENER LAS CARACTERISTICAS DE LA DIRECCION IP
-        CaracteristicasIP caracteristicasIP = new CaracteristicasIP(direccionIP, prefijo);
+        caracteristicasIP caracteristicasIP = new caracteristicasIP(direccionIP, prefijo);
 
         //ETIQUETAS PARA MOSTRAR LOS DATOS DE LA DIRECCION IP
         // SALIDA DE DATOS
@@ -89,7 +89,7 @@ public class AdministracionDeRedess {
         System.out.println("Ingresa el numero de host");
         int numeroDeHost = scanner.nextInt();
 
-        ObtenerDireccionIP obtenerDireccionIP = new ObtenerDireccionIP(numeroDeHost, direccionIP);
+        obtenerDireccionIP obtenerDireccionIP = new obtenerDireccionIP(numeroDeHost, direccionIP);
         obtenerDireccionIP.calcularPropiedades();
     }
 

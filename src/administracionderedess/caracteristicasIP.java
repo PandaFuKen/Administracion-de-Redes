@@ -10,14 +10,14 @@ import javax.swing.JOptionPane;
 
 
 //CLASE PARA OBTENER LAS CARACTERISTICAS DE LA DIRECCION IP
-public class CaracteristicasIP extends direccionIP {
+public class caracteristicasIP extends direccionIP {
 
     public int octeto1;
     public int octeto2;
     public int octeto3;
     public int octeto4;
     
-    public CaracteristicasIP(String direccionIP, int prefijo) {
+    public caracteristicasIP(String direccionIP, int prefijo) {
         super(direccionIP, prefijo);
         
         //MANEJAMOS LOS OCTETOS QUE SE DIVIDIERON EN EL ARREGLO 'dividirEnOctetos'

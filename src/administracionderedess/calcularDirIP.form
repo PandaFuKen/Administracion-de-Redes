@@ -218,16 +218,15 @@
                                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
-                                                  <EmptySpace max="32767" attributes="0"/>
                                                   <Component id="LabelDirIpBinaria" min="-2" pref="290" max="-2" attributes="0"/>
                                                   <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="0">
                                                   <Component id="LabelHostBinario" min="-2" pref="288" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -242,7 +241,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="41" max="32767" attributes="0"/>
                                   <Component id="LabelDirIpDecimal" min="-2" pref="290" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                               </Group>
@@ -350,7 +349,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="99" red="0" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Numero de Host en Binario : "/>
+                    <Property name="text" type="java.lang.String" value="Mascara en binario"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel6">
@@ -361,7 +360,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="99" red="0" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Direccion de red Binario : "/>
+                    <Property name="text" type="java.lang.String" value="Direccion IP Binario : "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
@@ -372,7 +371,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="99" red="0" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Direccion ip Binaria: "/>
+                    <Property name="text" type="java.lang.String" value="Bits de subred"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel11">
@@ -395,7 +394,7 @@
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="0.0.0.0"/>
+                    <Property name="text" type="java.lang.String" value="--"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
@@ -421,7 +420,7 @@
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="text" type="java.lang.String" value="0.0.0.0"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>

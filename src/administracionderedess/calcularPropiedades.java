@@ -307,7 +307,7 @@ public class calcularPropiedades extends javax.swing.JPanel {
         }
         //LLAMAMOS A LAS CLASES Y LE PASAMOS LOS DATOS
         int prefijoInt = Integer.parseInt(prefijoString);
-        CaracteristicasIP caracteristicasIP = new CaracteristicasIP(direccionIP, prefijoInt);
+        caracteristicasIP caracteristicasIP = new caracteristicasIP(direccionIP, prefijoInt);
         conClase conclase = new conClase(direccionIP,prefijoInt, caracteristicasIP);
        
         //MANEJO DE ERRORES EN CASO DE QUE LOS DATOS NO SEAN VALIDOS
